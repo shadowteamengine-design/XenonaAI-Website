@@ -12,6 +12,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <svg width="150" height="150" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="splash-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="55" fill="url(#splash-gradient)" class="splash-circle"/>
+                    <path d="M 35 35 L 85 85 M 85 35 L 35 85" stroke="white" stroke-width="12" stroke-linecap="round" class="splash-x"/>
+                </svg>
+            </div>
+            <h1 class="splash-title">XenonaAI</h1>
+            <div class="splash-loader">
+                <div class="loader-bar"></div>
+            </div>
+            <p class="splash-text">Loading your AI experience...</p>
+        </div>
+        <div class="splash-particles"></div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -23,7 +47,7 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#download">Download</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
                 <div class="cta-button">
                     <a href="#download" class="button primary-button">Download Now</a>
@@ -201,76 +225,48 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
+    <!-- About Me Section -->
+    <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Have questions? We've got answers</p>
+                <h2>About This Project</h2>
+                <p>The story behind XenonaAI and why I built it</p>
             </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do I need an API key?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>No! XenonaAI runs entirely on your own computer with your own trained model. No API keys, no subscriptions, no external services required.</p>
-                    </div>
+                    <h3>Who Am I?</h3>
+                    <p>I'm Darian Jones (ShadowTeam), a developer passionate about AI and machine learning. I wanted to understand how language models actually work, so I decided to build one from scratch - no shortcuts, no pretrained models.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do I need to install anything else?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>No! XenonaAI comes as a standalone application with everything bundled. Just download, install, and run - no additional software needed.</p>
-                    </div>
+                    <h3>Why This Project?</h3>
+                    <p>Too many people use AI without understanding it. I wanted to learn by doing - downloading datasets, training transformers, building interfaces. This is the result of that journey, shared openly so others can learn too.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is my data private?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! Your conversations and AI model run 100% locally on your computer. Nothing is sent to external servers - your data never leaves your device.</p>
-                    </div>
+                    <h3>What's Next?</h3>
+                    <p>This is just the beginning! I'm continuously learning and improving the model. Follow along on GitHub to see the progress, contribute ideas, or even help build features. This is a community project!</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can I customize the AI's behavior?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! You can train your own custom models on different datasets, adjust temperature settings, and personalize the interface theme to match your preferences.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How much does it cost?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Completely free and open source! This is a learning project with zero budget - just someone learning to build AI from scratch and sharing the journey.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What can I realistically expect?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Honest answer: It's a 25M parameter model, not GPT-4. It can do basic text completion and simple conversations, but won't rival ChatGPT. Think of it as a learning experiment - you'll see how AI works from the ground up!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Will there be updates?</h3>
-                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! As I learn more, I'll improve the model and add features. Follow the GitHub repo to see the progress!</p>
-                    </div>
+            </div>
+            <div class="about-cta">
+                <p>Want to connect or contribute?</p>
+                <div class="about-links">
+                    <a href="https://github.com/shadowteamengine-design" class="button secondary-button" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://discord.gg/FV29xTUZ" class="button secondary-button" target="_blank">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                    <a href="https://twitter.com/XenonaAI" class="button secondary-button" target="_blank">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
                 </div>
             </div>
         </div>
@@ -299,7 +295,7 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#download">Download</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Use</a></li>
                     </ul>

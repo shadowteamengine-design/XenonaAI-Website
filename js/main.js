@@ -3,6 +3,14 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Splash Screen - remove after animation
+    setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+            splash.style.display = 'none';
+        }
+    }, 3000);
+    
     // Mobile Menu Toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const body = document.querySelector('body');
@@ -63,30 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', function() {
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // Toggle current item
-            item.classList.toggle('active');
-        });
-    });
-    
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Add smooth scrolling to anchor links
             const targetId = this.getAttribute('href');
             
             if (targetId === '#') return;
@@ -122,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Animate Elements on Scroll
-    const animateElements = document.querySelectorAll('.feature-card, .step, .screenshot, .download-card, .faq-item');
+    const animateElements = document.querySelectorAll('.feature-card, .step, .screenshot, .download-card, .about-card');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

@@ -43,6 +43,210 @@ body {
     overflow-x: hidden;
 }
 
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a1f 0%, #1a1a3e 50%, #2d1b4e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 0.5s ease 2.5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.splash-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.splash-logo {
+    animation: logoAppear 0.8s ease forwards, logoPulse 2s ease-in-out 0.8s infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes logoAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.splash-circle {
+    animation: circleSpin 3s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes circleSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.splash-x {
+    animation: xGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes xGlow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+    }
+}
+
+.splash-title {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #6366F1 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    animation: titleSlide 0.8s ease 0.3s forwards;
+    opacity: 0;
+    letter-spacing: 2px;
+}
+
+@keyframes titleSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.splash-loader {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    animation: loaderAppear 0.5s ease 0.8s forwards;
+    opacity: 0;
+}
+
+@keyframes loaderAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+.loader-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #6366F1 0%, #EC4899 50%, #6366F1 100%);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    animation: loaderFill 2s ease forwards, loaderShine 1.5s linear infinite;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+@keyframes loaderFill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes loaderShine {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 200% 0%;
+    }
+}
+
+.splash-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 500;
+    animation: textFade 0.5s ease 1s forwards;
+    opacity: 0;
+}
+
+@keyframes textFade {
+    to {
+        opacity: 1;
+    }
+}
+
+.splash-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.splash-particles::before,
+.splash-particles::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: particleFloat 6s ease-in-out infinite;
+}
+
+.splash-particles::before {
+    background: #6366F1;
+    top: -150px;
+    left: -150px;
+}
+
+.splash-particles::after {
+    background: #EC4899;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -3s;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(50px, 50px) scale(1.2);
+    }
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -571,87 +775,84 @@ nav {
     font-size: 18px;
 }
 
-/* FAQ Section */
-.faq {
+/* About Section */
+.about {
     padding: 120px 0;
     background-color: var(--bg-color);
 }
 
-.faq-grid {
-    max-width: 900px;
-    margin: 0 auto;
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
 }
 
-.faq-item {
+.about-card {
     background-color: white;
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
-.faq-item:hover {
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
     border-color: var(--primary-light);
 }
 
-.faq-question {
-    padding: 24px 28px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.faq-question:hover {
-    background-color: var(--bg-light);
-}
-
-.faq-question h3 {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.toggle-icon {
-    width: 32px;
-    height: 32px;
+.about-icon {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    font-size: 32px;
+    color: white;
+    margin-bottom: 24px;
 }
 
-.faq-item.active .toggle-icon {
-    transform: rotate(45deg);
-    background-color: var(--accent-color);
+.about-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-color);
 }
 
-.faq-answer {
-    padding: 0 28px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.faq-item.active .faq-answer {
-    padding: 0 28px 28px;
-    max-height: 500px;
-}
-
-.faq-answer p {
+.about-card p {
     color: var(--text-light);
     line-height: 1.8;
+    font-size: 16px;
 }
 
-.faq-answer a {
-    color: var(--primary-color);
+.about-cta {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 2px solid var(--border-color);
+}
+
+.about-cta p {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 24px;
     font-weight: 600;
+}
+
+.about-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-links .button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Call to Action */
